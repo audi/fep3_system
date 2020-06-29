@@ -1,0 +1,46 @@
+/**
+ *
+ * FEP System Lib Version Header.
+ *
+ * @file
+
+   @copyright
+   @verbatim
+   Copyright @ 2020 Audi AG. All rights reserved.
+   
+       This Source Code Form is subject to the terms of the Mozilla
+       Public License, v. 2.0. If a copy of the MPL was not distributed
+       with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+   
+   If it is not possible or desirable to put the notice in a particular file, then
+   You may include the notice in a location (such as a LICENSE file in a
+   relevant directory) where a recipient would be likely to look for such a notice.
+   
+   You may add additional accurate notices of copyright ownership.
+   @endverbatim 
+ *
+ */
+
+#ifndef _FEP_SYSTEM_LIB_VERSION_HEADER_
+#define _FEP_SYSTEM_LIB_VERSION_HEADER_
+
+#define FEP_SYSTEM_LIB_VERSION_ID       "fepsystemlib"
+#define FEP_SYSTEM_LIB_VERSION_MAJOR    @FEP_SYSTEM_LIB_VERSION_MAJOR@
+#define FEP_SYSTEM_LIB_VERSION_MINOR    @FEP_SYSTEM_LIB_VERSION_MINOR@
+#define FEP_SYSTEM_LIB_VERSION_PATCH    @FEP_SYSTEM_LIB_VERSION_PATCH@
+#define FEP_SYSTEM_LIB_VERSION_BUILD    @FEP_SYSTEM_LIB_BUILD_NR@
+
+#define FEP_SYSTEM_LIB_VERSION_STR      "@FEP_SYSTEM_LIB_VERSION_MAJOR@.@FEP_SYSTEM_LIB_VERSION_MINOR@.@FEP_SYSTEM_LIB_VERSION_PATCH@-@VERSION_PARTICIPANT_LIBRARY@@BETA_FLAG@"
+
+#define FEP_SYSTEM_LIB_VERSION_LABEL    "FEP System lib\n" \
+                                    "Version " FEP_SYSTEM_LIB_VERSION_STR "\n" \
+                                    "Build @FEP_SYSTEM_LIB_BUILD_NR@\n" \
+                                    "Copyright (c) Audi AG. " \
+                                    "All rights reserved."
+
+#define FEP_SYSTEM_LIB_PLATFORM_STR     "@PLATFORM@"
+
+
+#cmakedefine FEP_SYSTEM_LIB_SHARED_LIB
+
+#endif  // _FEP_SYSTEM_LIB_VERSION_HEADER_

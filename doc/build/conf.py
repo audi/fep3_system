@@ -1,0 +1,65 @@
+#######################################################################
+# @file
+# Copyright &copy; 2020 Audi AG. All rights reserved.
+#
+# This Source Code Form is subject to the terms of the
+# Mozilla Public License, v. 2.0.
+# If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+#
+#######################################################################
+
+# Configuration file for the Sphinx documentation builder.
+#
+# This file only contains a selection of the most common options. For a full
+# list see the documentation:
+# https://www.sphinx-doc.org/en/master/usage/configuration.html
+
+# -- Path setup --------------------------------------------------------------
+import os
+import sys
+from datetime import date
+
+sys.path.append(os.path.abspath('./config'))
+sys.path.append(os.path.abspath("./_ext"))
+
+# -- Project information -----------------------------------------------------
+
+project = 'fep3-system-library'
+author = 'Audi AG'
+current_date = date.today()
+copyright = current_date.strftime("%d.%m.%Y") + ", " + author
+release = '3.0.0'
+version = release
+
+
+# -- General configuration ---------------------------------------------------
+
+extensions = [
+    'breathe',
+    'sphinx_rtd_theme'    
+]
+
+breathe_projects = {
+    "fep_system_api":"C:/work/fep/sdk/oss/github/fep3_system_int/build/doc/output/xml",
+    }
+
+breathe_default_project = "fep_system_api"
+templates_path = ['_templates']
+exclude_patterns = []
+
+
+# -- Options for HTML output -------------------------------------------------
+
+# HTML output options
+html_theme = 'sphinx_rtd_theme' # Used theme. The sphinx rtd theme must be installed seperately
+html_logo = '../images/Icon.png' # An image used in the top left of the documentation
+html_favicon = '../images/Favicon.png' # An image used as icon in the browser
+html_copy_source = True # DO copy the source .rst files to the output dir in order to make search work properly
+html_title = project # Title of the HTML in the browser
+html_static_path = ['_static'] # Additional css files
+html_context = {'css_files': ['_static/theme_overrides.css']} # Additional css files to override wide tables
+html_theme_options = {
+    'style_external_links': True,
+    'style_nav_header_background': '#BB0A30',
+}

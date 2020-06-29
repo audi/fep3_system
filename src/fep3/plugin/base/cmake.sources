@@ -1,0 +1,35 @@
+#
+# Copyright @ 2020 Audi AG. All rights reserved.
+# 
+#     This Source Code Form is subject to the terms of the Mozilla
+#     Public License, v. 2.0. If a copy of the MPL was not distributed
+#     with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+# 
+# If it is not possible or desirable to put the notice in a particular file, then
+# You may include the notice in a location (such as a LICENSE file in a
+# relevant directory) where a recipient would be likely to look for such a notice.
+# 
+# You may add additional accurate notices of copyright ownership.
+
+set(PLUGIN_BASE_DIR ${PROJECT_SOURCE_DIR}/src/fep3/plugin/base)
+set(PLUGIN_BASE_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include/fep3/plugin/base)
+
+set(PLUGIN_SOURCES_PRIVATE
+    ${PLUGIN_BASE_DIR}/shared_library.h
+    ${PLUGIN_BASE_DIR}/shared_library.cpp
+    ${PLUGIN_BASE_DIR}/host_plugin_base.h
+    ${PLUGIN_BASE_DIR}/host_plugin_base.cpp
+)
+
+set(PLUGIN_SOURCES_PUBLIC
+    ${PLUGIN_BASE_INCLUDE_DIR}/fep3_calling_convention.h
+    ${PLUGIN_BASE_INCLUDE_DIR}/plugin_base_intf.h
+)
+
+set(PLUGIN_SOURCES ${PLUGIN_SOURCES_PRIVATE} ${PLUGIN_SOURCES_PUBLIC})
+source_group(components\\plugin FILES ${PLUGIN_SOURCES})
+
+######################################
+# Set up the variable
+######################################
+set(FEP3_SOURCES ${FEP3_SOURCES} ${PLUGIN_SOURCES})

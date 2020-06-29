@@ -1,0 +1,32 @@
+#
+# Copyright @ 2020 Audi AG. All rights reserved.
+# 
+#     This Source Code Form is subject to the terms of the Mozilla
+#     Public License, v. 2.0. If a copy of the MPL was not distributed
+#     with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+# 
+# If it is not possible or desirable to put the notice in a particular file, then
+# You may include the notice in a location (such as a LICENSE file in a
+# relevant directory) where a recipient would be likely to look for such a notice.
+# 
+# You may add additional accurate notices of copyright ownership.
+
+if(fep3_system_library_FOUND)
+    return()
+endif()
+
+set(fep3_system_use_rtidds @FEP3_USE_RTIDDS@)
+
+#includes and provides some helper macros like fep3_deploy
+include(${CMAKE_CURRENT_LIST_DIR}/fep3_system-macros.cmake)
+
+# Add imported library target
+include(${CMAKE_CURRENT_LIST_DIR}/lib/cmake/fep3_system_targets.cmake)
+
+#prevent to have doubled targets
+if(NOT fep3_particpant_FOUND)
+    # include the target for http to install it on client side
+    include(${CMAKE_CURRENT_LIST_DIR}/lib/cmake/fep3_http_service_bus_targets.cmake)
+endif()
+
+set(fep3_system_library_FOUND true)

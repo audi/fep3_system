@@ -1,0 +1,41 @@
+#
+# Copyright @ 2020 Audi AG. All rights reserved.
+# 
+#     This Source Code Form is subject to the terms of the Mozilla
+#     Public License, v. 2.0. If a copy of the MPL was not distributed
+#     with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+# 
+# If it is not possible or desirable to put the notice in a particular file, then
+# You may include the notice in a location (such as a LICENSE file in a
+# relevant directory) where a recipient would be likely to look for such a notice.
+# 
+# You may add additional accurate notices of copyright ownership.
+
+set(PLUGIN_CPP_DIR ${PROJECT_SOURCE_DIR}/src/fep3/plugin/cpp)
+set(PLUGIN_CPP_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include/fep3/plugin/cpp)
+
+set(PLUGIN_CPP_SOURCES_PRIVATE
+    ${PLUGIN_CPP_DIR}/cpp_host_plugin.cpp
+    ${PLUGIN_CPP_DIR}/cpp_host_plugin.h
+)
+
+set(PLUGIN_CPP_SOURCES_PUBLIC
+    ${PLUGIN_CPP_INCLUDE_DIR}/cpp_plugin_component_factory_intf.h
+    ${PLUGIN_CPP_INCLUDE_DIR}/cpp_plugin_intf.h
+)
+
+set(PLUGIN_CPP_PLUGIN_LIB_SOURCES
+    ${PLUGIN_CPP_INCLUDE_DIR}/cpp_plugin_component_factory_intf.h
+    ${PLUGIN_CPP_INCLUDE_DIR}/cpp_plugin_intf.h
+    ${PLUGIN_CPP_INCLUDE_DIR}/cpp_plugin_component_factory.h
+    ${PLUGIN_CPP_DIR}/cpp_plugin_component_factory.cpp
+)
+
+set(PLUGIN_CPP_SOURCES ${PLUGIN_CPP_SOURCES_PRIVATE} ${PLUGIN_CPP_SOURCES_PUBLIC})
+source_group(plugin\\cpp FILES ${PLUGIN_CPP_SOURCES})
+
+##################################################################################################################
+# Set up the variable PLUGIN_CPP_SOURCES NOT FEP 3!! ... this is only used within the plugin base lib
+##################################################################################################################
+set(FEP3_SOURCES ${FEP3_SOURCES} ${PLUGIN_CPP_SOURCES})
+set(FEP3_PLUGIN_CPP_LIB_SOURCES ${FEP3_PLUGIN_CPP_LIB_SOURCES} ${PLUGIN_CPP_PLUGIN_LIB_SOURCES})

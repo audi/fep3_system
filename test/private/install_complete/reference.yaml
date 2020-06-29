@@ -1,0 +1,139 @@
+common:
+    files:
+        - fep3_system-config.cmake
+        - fep3_system-config-version.cmake
+        - fep3_system-macros.cmake
+        - README.md
+        - doc/license/used/a_util/MPL2.0.txt
+        - doc/license/used/a_util/licenses.txt
+        - doc/license/used/a_util/used_oss.md
+        - doc/license/used/ddl/MPL2.0.txt
+        - doc/license/used/ddl/mpl.md
+        - doc/license/used/ddl/used_licenses.md
+        - doc/license/used/ddl/used_licenses/a_util/MPL2.0.txt
+        - doc/license/used/ddl/used_licenses/a_util/licenses.txt
+        - doc/license/used/ddl/used_licenses/a_util/used_oss.md
+        - doc/license/used/ddl/used_licenses/list_used_licenses.md
+        - doc/license/used/fep_sdk_participant/used/a_util/MPL2.0.txt
+        - doc/license/used/fep_sdk_participant/used/a_util/licenses.txt
+        - doc/license/used/fep_sdk_participant/used/a_util/used_oss.md
+        - doc/license/used/fep_sdk_participant/used/ddl/MPL2.0.txt
+        - doc/license/used/fep_sdk_participant/used/ddl/mpl.md
+        - doc/license/used/fep_sdk_participant/used/ddl/used_licenses.md
+        - doc/license/used/fep_sdk_participant/used/ddl/used_licenses/a_util/MPL2.0.txt
+        - doc/license/used/fep_sdk_participant/used/ddl/used_licenses/a_util/licenses.txt
+        - doc/license/used/fep_sdk_participant/used/ddl/used_licenses/a_util/used_oss.md
+        - doc/license/used/fep_sdk_participant/used/ddl/used_licenses/list_used_licenses.md
+        - doc/license/used/fep_sdk_participant/used/rti_connext_dds/real-time_innovations_inc_software_license_agreement.md
+        - doc/license/used/fep_sdk_participant/used/pkg_rpc/MPL2.0.txt
+        - doc/license/used/fep_sdk_participant/used/pkg_rpc/licenses.txt
+        - doc/license/used/fep_sdk_participant/used/pkg_rpc/used_licenses/a_util/MPL2.0.txt
+        - doc/license/used/fep_sdk_participant/used/pkg_rpc/used_licenses/a_util/licenses.txt
+        - doc/license/used/fep_sdk_participant/used/pkg_rpc/used_licenses/a_util/used_oss.md
+        - doc/license/used/fep_sdk_participant/used/pkg_rpc/used_licenses/list_used_licenses.md
+        - doc/license/used/fep_sdk_participant/CONTRIBUTING.md
+        - doc/license/used/fep_sdk_participant/MPL2.0.txt
+        - doc/license/used/fep_sdk_participant/mpl.md
+        - include/fep_system/fep_system_version.h
+        - include/fep_system/fep_system.h
+        - include/fep_system/fep_system_export.h
+        - include/fep_system/fep_system_types.h
+        - include/fep_system/rpc_component_proxy.h
+        - include/fep_system/participant_proxy.h
+        - include/fep_system/system_logger_intf.h
+        - include/fep_system/event_monitor_intf.h
+        - include/fep_system/logging_types_legacy.h
+        - include/fep_system/base/logging/logging_types.h
+        - include/fep_system/base/properties/properties.h
+        - include/fep_system/base/properties/properties_intf.h
+        - include/fep_system/base/properties/property_type.h
+        - include/fep_system/base/properties/property_type_conversion.h
+        - include/fep_system/base/streamtype/default_streamtype.h
+        - include/fep_system/base/streamtype/streamtype.h
+        - include/fep_system/base/streamtype/streamtype_intf.h
+        - include/fep_system/rpc_services/configuration/configuration_rpc_intf.h
+        - include/fep_system/rpc_services/data_registry/data_registry_rpc_intf.h
+        - include/fep_system/rpc_services/data_registry/data_registry_rpc_intf_def.h
+        - include/fep_system/rpc_services/participant_statemachine/participant_statemachine_rpc_intf.h
+        - include/fep_system/rpc_services/participant_statemachine/participant_statemachine_rpc_intf_def.h
+        - include/fep_system/rpc_services/participant_info/participant_info_rpc_intf.h
+        - include/fep_system/rpc_services/participant_info/participant_info_rpc_intf_def.h
+        - include/fep_system/rpc_services/base/fep_rpc_client.h
+        - include/fep_system/rpc_services/base/fep_rpc_iid.h
+        - include/fep_system/rpc_services/base/fep_rpc_client_intf.h
+        - include/fep_system/rpc_services/logging/logging_rpc_intf.h
+        - include/fep_system/rpc_services/logging/logging_service_rpc_intf_def.h
+        - include/fep_system/rpc_services/configuration/configuration_rpc_intf_def.h
+        - include/fep_system/rpc_services/clock/clock_service_rpc_intf_def.h
+        - include/fep_system/rpc_services/clock/clock_service_rpc_intf.h
+        - lib/cmake/fep3_system_targets.cmake
+        - lib/fep3_system.plugins
+        - lib/cmake/fep3_http_service_bus_targets.cmake
+
+linux_shared_debug:
+    conditions:
+        my_conds:
+            os: Linux
+            build_type: Debug
+    files:
+        - lib/libfep3_systemd3.0.so
+        - lib/cmake/fep3_system_targets-debug.cmake
+        - lib/cmake/fep3_http_service_bus_targets-debug.cmake
+
+linux_shared_release:
+    conditions:
+        my_conds:
+            os: Linux
+            build_type: Release
+    files:
+        - lib/libfep3_system3.0.so
+        - lib/cmake/fep3_system_targets-release.cmake
+        - lib/cmake/fep3_http_service_bus_targets-release.cmake
+
+linux_shared:
+    conditions:
+        my_conds:
+            os: Linux
+    files:
+        - lib/http/libfep3_http_service_bus.so
+
+windows_shared_debug:
+    conditions:
+        my_conds:
+            os: Windows
+            build_type: Debug
+    files:
+        - lib/fep3_systemd3.0.dll
+        - lib/fep3_systemd3.0.lib
+        - lib/fep3_systemd3.0.pdb
+        - lib/cmake/fep3_system_targets-debug.cmake
+        - lib/cmake/fep3_http_service_bus_targets-debug.cmake
+  
+windows_shared_release:
+    conditions:
+        my_conds:
+            os: Windows
+            build_type: Release
+
+    files:
+        - lib/fep3_system3.0.dll
+        - lib/fep3_system3.0.lib
+        - lib/cmake/fep3_system_targets-release.cmake
+        - lib/cmake/fep3_http_service_bus_targets-release.cmake
+
+windows_shared:
+    conditions:
+        my_conds:
+            os: Windows
+    files:
+        - lib/http/fep3_http_service_bus.dll
+
+documentation:
+    conditions:
+        doc_x86:
+            arch: x86
+        doc_x86_64:
+            arch: x86_64
+    files:
+        - doc/changelog.md
+        - doc/html/*
